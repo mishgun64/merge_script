@@ -22,7 +22,7 @@ case $act in
             echo
             echo 'Select audio:'
             echo '-------------'
-            arr=$(find -type f -name "*.mka" | awk -F/ '{print $(NF-1)}' | uniq)
+	    arr=$(find -type f -name "*.mka" | awk -v OFS='/' -F "/" '{$(NF-0)=""; print $0}' | uniq)
 
             select folder in $arr
             do
